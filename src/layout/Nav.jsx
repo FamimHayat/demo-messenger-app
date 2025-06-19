@@ -10,7 +10,7 @@ const Nav = () => {
     return (
         <nav className='h-dvh w-fit border-r-2 pr-6' aria-label="Main Navigation">
             <div className='flex flex-col h-full px-3'>
-                <div className='py-3 text-4xl  font-bold'>brand logo</div>
+                <div className='py-3 w-full lg:w-[200px] text-4xl  font-bold'>brand logo</div>
                 <ul className='flex flex-col gap-2 mt-52 text-[28px] text-black'>
                     <li className='flex justify-between items-center cursor-pointer border-2 border-white px-1 transiton-all hover:underline  hover:border-black'><Link to="/chatList" className="py-3">Chat List</Link> <LuMessageCircleCode className='text-[25px]' /> </li>
                     <li className='flex justify-between items-center cursor-pointer border-2 border-white px-1 transiton-all hover:underline  hover:border-black'><Link to="/groups" className="py-3">Groups</Link> <FaUserGroup className='text-[25px]' /></li>
