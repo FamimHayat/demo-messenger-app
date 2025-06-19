@@ -11,7 +11,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="h-dvh w-full lg:w-fit border-r-2  pr-6"
+      className="bg-[#202020] border-b-4 lg:h-dvh w-full lg:w-fit border-r-4 border-[#4f4e4e] pr-6"
       aria-label="Main Navigation"
     >
       <div
@@ -20,15 +20,18 @@ const Nav = () => {
           flex-col lg:flex-col
           lg:justify-start
           pt-5 lg:pt-0
+          
         `}
       >
         {/* Top row: Brand logo and profile side-by-side on small screens */}
         <div className="flex items-center justify-between lg:flex-col lg:items-start">
           {/* Brand Logo */}
-          <div className="py-3 text-4xl font-bold lg:w-[200px]">chat app</div>
+          <div className="py-3 text-4xl text-white font-bold lg:w-[200px]">
+            chat app
+          </div>
 
           {/* Profile + toggle container */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-3 pl-5 lg:hidden">
             {/* Profile Section */}
             <div className="flex items-center gap-3">
               <img
@@ -37,12 +40,14 @@ const Nav = () => {
                 className="w-15 h-15 rounded-full p-0.5 border border-gray-300"
               />
               <div className="flex flex-col gap-1">
-                <h2 className="text-[19px] hidden md:block">user-name</h2>
+                <h2 className="text-[19px] text-white hidden md:block">
+                  user-name
+                </h2>
                 <Link
                   to="/userProfile"
                   className="flex  gap-2 items-center group"
                 >
-                  <p className=" text-stone-600 group-hover:underline group-hover:text-blue-900 cursor-pointer hidden md:block">
+                  <p className=" text-white group-hover:underline group-hover:text-blue-900 cursor-pointer hidden md:block">
                     edit profile
                   </p>
                   <SlSettings className="flex md:hidden" />
@@ -58,7 +63,11 @@ const Nav = () => {
               type="button"
               style={{ userSelect: "none" }}
             >
-              {menuOpen ? <HiChevronUp /> : <HiChevronDown />}
+              {menuOpen ? (
+                <HiChevronUp className="text-white cursor-pointer" />
+              ) : (
+                <HiChevronDown className="text-white cursor-pointer" />
+              )}
             </button>
           </div>
         </div>
@@ -66,43 +75,43 @@ const Nav = () => {
         {/* Navigation Links */}
         <ul
           className={`
-            flex flex-col gap-2 text-[28px] text-black mt-8 lg:mt-40 
+            flex flex-col gap-2 text-[28px] text-black mt-8 mb-4 lg:mt-40 
             transition-all duration-300 overflow-hidden
             ${menuOpen ? "max-h-[500px]" : "max-h-0"}
             lg:max-h-full lg:flex-col lg:gap-4
           `}
         >
-          <li className="flex justify-between items-center cursor-pointer border-2 border-white px-1 transition-all hover:underline hover:border-black">
-            <Link to="/chatList" className="py-3">
+          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
+            <Link to="/chatList" className="py-3 text-white">
               Chat List
             </Link>
-            <LuMessageCircleCode className="text-[25px]" />
+            <LuMessageCircleCode className="text-[25px] text-white" />
           </li>
-          <li className="flex justify-between items-center cursor-pointer border-2 border-white px-1 transition-all hover:underline hover:border-black">
-            <Link to="/groups" className="py-3">
+          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
+            <Link to="/groups" className="py-3 text-white">
               Groups
             </Link>
-            <FaUserGroup className="text-[25px]" />
+            <FaUserGroup className="text-[25px] text-white" />
           </li>
-          <li className="flex justify-between items-center cursor-pointer border-2 border-white px-1 transition-all hover:underline hover:border-black">
-            <Link to="/friends" className="py-3">
+          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
+            <Link to="/friends" className="py-3 text-white">
               Friends
             </Link>
-            <IoIosPeople className="text-[30px]" />
+            <IoIosPeople className="text-[30px] text-white" />
           </li>
         </ul>
 
         {/* Profile section below menu on lg and above */}
-        <div className="hidden lg:flex mt-auto flex gap-2 mb-5 items-center">
+        <div className="hidden lg:flex mt-auto lg:flex gap-2 mb-5 items-center">
           <img
             src="/profile-image.jpg"
             alt="users-image"
             className="w-15 h-15 rounded-full p-0.5 border border-gray-300"
           />
           <div className="flex flex-col gap-2">
-            <h2 className="text-[19px]">user-name</h2>
+            <h2 className="text-[19px] text-white">user-name</h2>
             <Link to="/userProfile" className="flex gap-3 items-center group">
-              <p className="text-stone-600 group-hover:underline group-hover:text-blue-900 cursor-pointer">
+              <p className="text-white group-hover:underline group-hover:text-blue-300 cursor-pointer">
                 edit profile
               </p>
               <SlSettings className="flex md:hidden" />
