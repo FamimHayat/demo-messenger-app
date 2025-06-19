@@ -1,4 +1,5 @@
 import React from "react";
+import { FcGoogle } from "react-icons/fc"
 
 const SignUp = () => {
   return (
@@ -68,14 +69,19 @@ const SignUp = () => {
             Sign in
           </span>
         </h2>
+        <button
+          type="submit"
+          className="bg-[#201f1f] text-white py-3 rounded-full text-lg flex  justify-center items-center gap-3 cursor-pointer hover:bg-[#3a3c66] transition"
+        >
+          Sign up with Google <FcGoogle className="text-[30px]"/>
+        </button>
 
         <button
           type="submit"
           className="bg-[#201f1f] text-white py-3 rounded-full text-lg cursor-pointer hover:bg-[#0b0b0b] transition"
         >
           Sign up
-              </button>
-              
+        </button>
       </form>
     </div>
   );
