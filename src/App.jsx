@@ -3,6 +3,7 @@ import Layout from "./layout/Index"
 import Home from "./pages/Home"
 import Error404 from "./pages/Error404"
 import UserProfile from "./pages/UserProfile"
+import SignIn from "./pages/SignIn"
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             </Route>
           </Route>
           <Route path="*" element={<Error404/>}></Route>
+          <Route path="/signUp" element={<sign/>}></Route>
+          <Route path="/signIn" element={<SignIn/>}></Route>
         </Routes>
 
       </BrowserRouter>
