@@ -11,7 +11,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="h-dvh w-full md:w-fit border-r-2  pr-6"
+      className="h-dvh w-full lg:w-fit border-r-2  pr-6"
       aria-label="Main Navigation"
     >
       <div
@@ -25,7 +25,7 @@ const Nav = () => {
         {/* Top row: Brand logo and profile side-by-side on small screens */}
         <div className="flex items-center justify-between lg:flex-col lg:items-start">
           {/* Brand Logo */}
-          <div className="py-3 text-4xl font-bold lg:w-[200px]">brand logo</div>
+          <div className="py-3 text-4xl font-bold lg:w-[200px]">chat app</div>
 
           {/* Profile + toggle container */}
           <div className="flex items-center gap-3 lg:hidden">
@@ -40,12 +40,12 @@ const Nav = () => {
                 <h2 className="text-[19px] hidden md:block">user-name</h2>
                 <Link
                   to="/userProfile"
-                  className="flex gap-2 items-center group"
+                  className="flex  gap-2 items-center group"
                 >
-                  <p className="text-stone-600 group-hover:underline group-hover:text-blue-900 cursor-pointer hidden md:block">
+                  <p className=" text-stone-600 group-hover:underline group-hover:text-blue-900 cursor-pointer hidden md:block">
                     edit profile
                   </p>
-                  <SlSettings />
+                  <SlSettings className="flex md:hidden" />
                 </Link>
               </div>
             </div>
@@ -105,7 +105,7 @@ const Nav = () => {
               <p className="text-stone-600 group-hover:underline group-hover:text-blue-900 cursor-pointer">
                 edit profile
               </p>
-              <SlSettings />
+              <SlSettings className="flex md:hidden" />
             </Link>
           </div>
         </div>
