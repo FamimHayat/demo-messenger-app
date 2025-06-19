@@ -5,3 +5,8 @@
 
   --color-primary: #000;
 }
+
+
+a{
+  display: inline-block;
+}
