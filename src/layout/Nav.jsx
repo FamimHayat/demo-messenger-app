@@ -47,10 +47,10 @@ const Nav = () => {
                   to="/userProfile"
                   className="flex  gap-2 items-center group"
                 >
-                  <p className=" text-white group-hover:underline group-hover:text-blue-900 cursor-pointer hidden md:block">
+                  <p className=" text-white group-hover:underline group-hover:text-blue-300 cursor-pointer hidden md:block">
                     edit profile
                   </p>
-                  <SlSettings className="flex md:hidden" />
+                  <SlSettings className="flex md:hidden text-white group-hover:text-blue-300" />
                 </Link>
               </div>
             </div>

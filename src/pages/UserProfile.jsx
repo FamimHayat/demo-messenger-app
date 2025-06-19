@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserProfile = () => {
     return (
-        <section className='lg:h-dvh w-full flex justify-center items-center'>
+        <section className='h-dvh w-full flex justify-center items-center'>
             <div className="flex justify-center">
                 <div
                     className="
