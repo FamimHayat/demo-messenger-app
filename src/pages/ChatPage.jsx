@@ -1,10 +1,10 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6"
 
-import { SlSettings } from "react-icons/sl";
-import { Link } from "react-router";
-import MyMassage from "../components/MyMassage";
-import FriendMassage from "../components/FriendMassage";
+import { SlSettings } from "react-icons/sl"
+import { Link } from "react-router"
+import MyMassage from "../components/MyMassage"
+import FriendMassage from "../components/FriendMassage"
 
 const ChatPage = () => {
   return (
@@ -28,7 +28,11 @@ const ChatPage = () => {
             <FriendMassage message={" Lorem ipsum dolor"} />
             <MyMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
-            <MyMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolor sdfs esdfgh jjkls d ahhfiu huu ylkagiu kjzfj oei tg ahhfiu huu ylkagiu kjzfj oei tg ahhfiu huu ylkagiu kjzfj oei tg ahhfiu huu ylkagiu kjzfj oei tg"
+              }
+            />
             <FriendMassage
               message={" Lorem ipsum dolorafas aff ew  fdf afgsdf wrrew "}
             />
@@ -47,10 +51,14 @@ const ChatPage = () => {
             <MyMassage message={" Lorem ipsum dolor"} />
             <MyMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
-            <MyMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolor sdfs esdfgh jjkls ddfsf fsdf er fg 65 iore cnvx,n riu "
+              }
+            />
             <FriendMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
-            <MyMassage message={" Lorem ipsum dolor"} />
+            <MyMassage message={" Lorem ipsum dolor ddas ertre gg  lorem"} />
             <FriendMassage
               message={
                 " Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fe"
@@ -62,7 +70,11 @@ const ChatPage = () => {
                 " Lorem ipsum dolor fkjh fewiu jksdf ruewo ukjflk ureoiw uf sklj lk  reu ou akl kr sh sdsf kshf wh i"
               }
             />
-            <MyMassage message={" Lorem ipsum dolor"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolor lkjsdlkf wro uc,v lksrw9u lk jk lur w "
+              }
+            />
             <FriendMassage message={" Lorem ipsum dolor"} />
             <MyMassage
               message={
@@ -81,7 +93,11 @@ const ChatPage = () => {
               }
             />
             <FriendMassage message={" Lorem ipsum dolor dj sd jfsd wkf f"} />
-            <MyMassage message={" Lorem ipsum dolorasa"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolorasa lksd uireal fjcv nx yu j s kf hsfhe uifhf ahhfiu huu ylkagiu kjzfj oei tg ahhfiu huu ylkagiu kjzfj oei tg"
+              }
+            />
             <FriendMassage
               message={
                 " Lorem ipsum dolor lkjdf ialri fawisdl;fjsdl; sdfsfw lsjflsdj lsjfowa xjfs "
@@ -89,18 +105,17 @@ const ChatPage = () => {
             />
             <MyMassage message={" Lorem ipsum dolor dsadas"} />
           </div>
-          <div>
+          <div className="border-t-3 border-[#565656]">
             <div className="flex gap-2 pt-3 items-center">
               <div className="w-full">
                 <input
                   type="text"
-                  placeholder="search username"
-                  className="text-[25px] text-white placeholder-gray-400 pl-2 py-2 bg-[#3f3e3e] rounded-full border-4 border-[#202020] outline-none focus:outline-none focus:ring-2 focus:ring-[#b6b5b5] w-full"
+                  placeholder="type your message"
+                  className="text-[17px] text-white custom-inset-shadow py-4 placeholder:text-2xl placeholder-stone-400 pl-3  bg-[#3f3e3e] rounded-full border-4 border-[#202020] outline-none focus:outline-none focus:ring-2 focus:ring-[#b6b5b5] w-full"
                 />
               </div>
-              <div className="flex items-center w-fit justify-center cursor-pointer rounded-full group active:bg-[#767676]">
-                <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3 group-hover:text-[#80c3dd]"></h2>
-                <FaArrowRight className="text-[30px] pr-3 text-white group-hover:text-[#80c3dd]" />
+              <div className="flex items-center w-fit justify-center cursor-pointer rounded-full group ">
+                <FaArrowRight className="text-[30px] md:text-[40px] p-1 text-white group-hover:text-[#80c3dd] active:text-white border-2  rounded-full" />
               </div>
             </div>
           </div>
