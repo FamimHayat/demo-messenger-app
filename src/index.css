@@ -10,3 +10,8 @@
 a{
   display: inline-block;
 }
+
+
+.chatList-custom-height{
+  height: calc(100dvh - 80px);
+}
