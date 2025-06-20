@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 
 const SearchBar = () => {
   return (
-    <div className=" flex gap-2 py-2 border-b-2 border-[#4f4e4e]">
+    <div className=" flex gap-2 py-2 border-b-2 border-[#4f4e4e] group">
       <div className="w-full relative">
         <input
           type="text"
@@ -17,10 +17,10 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex items-center w-fit justify-center  cursor-pointer rounded-full group active:bg-[#767676]">
-        <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3  group-hover:">
+        <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3  group-hover:text-[#80c3dd]">
           add
         </h2>
-        <FaPlus className="text-[30px] pr-3 text-white  group-hover:" />
+        <FaPlus className="text-[30px] pr-3 text-white  group-hover:text-[#80c3dd]" />
       </div>
     </div>
   );
