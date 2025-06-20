@@ -1,11 +1,10 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa6"
-import { FiSearch } from "react-icons/fi";
-import Users from "../components/Users"
-import { SlSettings } from "react-icons/sl"
-import { Link } from "react-router"
-import MyMassage from "../components/MyMassage"
-import FriendMassage from "../components/FriendMassage"
+import { FaArrowRight } from "react-icons/fa6";
+
+import { SlSettings } from "react-icons/sl";
+import { Link } from "react-router";
+import MyMassage from "../components/MyMassage";
+import FriendMassage from "../components/FriendMassage";
 
 const ChatPage = () => {
   return (
@@ -30,13 +29,21 @@ const ChatPage = () => {
             <MyMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
             <MyMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
-            <FriendMassage message={" Lorem ipsum dolorafas aff ew  fdf afgsdf wrrew "} />
-            <FriendMassage message={" Lorem ipsum dolorafas aff ew  fdf afgsdf wrrew "} />
+            <FriendMassage
+              message={" Lorem ipsum dolorafas aff ew  fdf afgsdf wrrew "}
+            />
+            <FriendMassage
+              message={" Lorem ipsum dolorafas aff ew  fdf afgsdf wrrew "}
+            />
             <MyMassage message={" Lorem ipsum dolo fkldfj woi  flkdsjfr"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
             <MyMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
-            <MyMassage message={" Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fe"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fe"
+              }
+            />
             <MyMassage message={" Lorem ipsum dolor"} />
             <MyMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
@@ -44,38 +51,56 @@ const ChatPage = () => {
             <FriendMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor sdfs esdfgh jjkls d"} />
             <MyMassage message={" Lorem ipsum dolor"} />
-            <FriendMassage message={" Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fe"} />
+            <FriendMassage
+              message={
+                " Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fe"
+              }
+            />
             <FriendMassage message={" Lorem ipsum dolor"} />
-            <FriendMassage message={" Lorem ipsum dolor fkjh fewiu jksdf ruewo ukjflk ureoiw uf sklj lk  reu ou akl kr sh sdsf kshf wh i"} />
+            <FriendMassage
+              message={
+                " Lorem ipsum dolor fkjh fewiu jksdf ruewo ukjflk ureoiw uf sklj lk  reu ou akl kr sh sdsf kshf wh i"
+              }
+            />
             <MyMassage message={" Lorem ipsum dolor"} />
             <FriendMassage message={" Lorem ipsum dolor"} />
-            <MyMassage message={" Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fedsfd df sf oiioiwj jjsdfj io  fidfurioj . lskfo uif lf joi "} />
-            <FriendMassage message={" Lorem ipsum dolor fsdf f w a fsf w sa faf safaf 4 afjioajfs aijfojfa  sf a w"} />
+            <MyMassage
+              message={
+                " Lorem ipsum dolor jfsdifj fjoio ni lkfsdlk 3f jjv  kldos s fedsfd df sf oiioiwj jjsdfj io  fidfurioj . lskfo uif lf joi "
+              }
+            />
+            <FriendMassage
+              message={
+                " Lorem ipsum dolor fsdf f w a fsf w sa faf safaf 4 afjioajfs aijfojfa  sf a w"
+              }
+            />
             <MyMassage message={" Lorem ipsum dolor lkfl;k a lkas ja. as"} />
-            <FriendMassage message={" Lorem ipsum dolor lkjdf ialri fawisdl;fjsdl; sdfsfw lsjflsdj lsjfowa xjfs "} />
+            <FriendMassage
+              message={
+                " Lorem ipsum dolor lkjdf ialri fawisdl;fjsdl; sdfsfw lsjflsdj lsjfowa xjfs "
+              }
+            />
             <FriendMassage message={" Lorem ipsum dolor dj sd jfsd wkf f"} />
             <MyMassage message={" Lorem ipsum dolorasa"} />
-            <FriendMassage message={" Lorem ipsum dolor lkjdf ialri fawisdl;fjsdl; sdfsfw lsjflsdj lsjfowa xjfs "} />
-            <MyMassage message={" Lorem ipsum dolor dsadas" } />
+            <FriendMassage
+              message={
+                " Lorem ipsum dolor lkjdf ialri fawisdl;fjsdl; sdfsfw lsjflsdj lsjfowa xjfs "
+              }
+            />
+            <MyMassage message={" Lorem ipsum dolor dsadas"} />
           </div>
           <div>
-            <div className=" flex gap-2 pt-3 items-center ">
-              <div className="w-full relative">
+            <div className="flex gap-2 pt-3 items-center">
+              <div className="w-full">
                 <input
                   type="text"
                   placeholder="search username"
-                  className="text-[25px] text-white placeholder-gray-400 pl-2 py-2 pr-10 bg-[#3f3e3e] rounded-full border-4 border-[#202020] outline-none focus:outline-none focus:ring-2 focus:ring-[#b6b5b5] w-full"
-                />
-                <FiSearch
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2   text-white cursor-pointer rounded-full hover:bg-[#181818] active:bg-[#767676]"
-                  size={40}
+                  className="text-[25px] text-white placeholder-gray-400 pl-2 py-2 bg-[#3f3e3e] rounded-full border-4 border-[#202020] outline-none focus:outline-none focus:ring-2 focus:ring-[#b6b5b5] w-full"
                 />
               </div>
-              <div className="flex items-center w-fit justify-center  cursor-pointer  rounded-full group active:bg-[#767676]">
-                <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3 group-hover:text-[#80c3dd]">
-                  add
-                </h2>
-                <FaPlus className="text-[30px] pr-3 text-white  group-hover:text-[#80c3dd]" />
+              <div className="flex items-center w-fit justify-center cursor-pointer rounded-full group active:bg-[#767676]">
+                <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3 group-hover:text-[#80c3dd]"></h2>
+                <FaArrowRight className="text-[30px] pr-3 text-white group-hover:text-[#80c3dd]" />
               </div>
             </div>
           </div>
