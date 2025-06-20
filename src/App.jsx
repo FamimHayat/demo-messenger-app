@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router"
 import Layout from "./layout/Index"
 import Home from "./pages/Home"
 import Error404 from "./pages/Error404"
-import UserProfile from "./pages/UserProfile"
+
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
+import MyProfile from "./pages/MyProfile"
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="/userProfile" element={<UserProfile/>} />
+              <Route path="/myProfile" element={<MyProfile/>} />
 
             </Route>
           </Route>

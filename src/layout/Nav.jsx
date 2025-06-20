@@ -110,7 +110,7 @@ const Nav = () => {
           />
           <div className="flex flex-col gap-2">
             <h2 className="text-[19px] text-white">user-name</h2>
-            <Link to="/userProfile" className="flex gap-3 items-center group">
+            <Link to="/myProfile" className="flex gap-3 items-center group">
               <p className="text-white group-hover:underline group-hover:text-blue-300 cursor-pointer">
                 edit profile
               </p>
