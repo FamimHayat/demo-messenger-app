@@ -1,13 +1,11 @@
+import React from "react";
 
-import React from 'react'
-
-const FriendMassage = ({message}) => {
+const FriendMassage = ({ message }) => {
   return (
-      <div className='p-1'>
-          <p className='text-white text-[28px]'>{message}</p>
-
+    <div className="p-1 pr-5 rounded-tr-4xl  bg-[#3b3a3a] max-w-xs">
+      <p className="text-white text-[16px]">{message}</p>
     </div>
-  )
-}
+  );
+};
 
-export default FriendMassage
+export default FriendMassage;
