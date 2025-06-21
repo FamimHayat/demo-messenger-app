@@ -4,9 +4,10 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
-  sendEmailVerification
+  sendEmailVerification,
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router"
 
 // sign-up page authentication
 // sign-up page authentication
@@ -14,6 +15,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const SignUp = () => {
   const auth = getAuth();
+  const navigate = useNavigate()
 
   const [userData, setUserData] = useState({
     fullName: "",
@@ -34,12 +36,11 @@ const SignUp = () => {
               // Email verification sent!
               // ...
               toast.success(" registration successful..!!!");
+             setTimeout(()=>{ navigate("/signIn");},1500)
             });
           })
           .catch((error) => {
-            console.log(error.code);
-
-            console.log(error.message);
+            
           });
       })
       .catch((error) => {
