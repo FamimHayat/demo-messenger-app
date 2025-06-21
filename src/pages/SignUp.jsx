@@ -4,6 +4,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -24,15 +25,16 @@ const SignUp = () => {
     console.log(userData);
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
-        // const user = userCredential.user;
-
-        toast.success(" registration successful..!!!");
         updateProfile(auth.currentUser, {
           displayName: userData.fullName,
           photoURL: "/profile-image.jpg",
         })
           .then(() => {
-            console.log(userCredential);
+            sendEmailVerification(auth.currentUser).then(() => {
+              // Email verification sent!
+              // ...
+              toast.success(" registration successful..!!!");
+            });
           })
           .catch((error) => {
             console.log(error.code);
