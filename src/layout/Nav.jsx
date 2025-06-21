@@ -81,20 +81,29 @@ const Nav = () => {
             lg:max-h-full lg:flex-col lg:gap-4
           `}
         >
-          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
-            <Link to="/chatList" className="py-3 text-white">
+          <li className="flex justify-between items-center cursor-pointer border-2  px-1 transition-all hover:underline group hover:bg-[#8c8c8c]  ">
+            <Link
+              to="/"
+              className="w-full py-3 text-white group-hover:text-black focus:underline focus:italic "
+            >
               Chat List
             </Link>
-            <LuMessageCircleCode className="text-[25px] text-white" />
+            <LuMessageCircleCode className="text-[25px] text-white " />
           </li>
-          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
-            <Link to="/groups" className="py-3 text-white">
+          <li className="flex justify-between items-center cursor-pointer border-2  px-1 transition-all hover:underline group hover:bg-[#8c8c8c] focus:bg-[#8c8c8c]">
+            <Link
+              to="/"
+              className="py-3 text-white group-hover:text-black"
+            >
               Groups
             </Link>
             <FaUserGroup className="text-[25px] text-white" />
           </li>
-          <li className="flex justify-between items-center cursor-pointer border-2 border-[#202020] px-1 transition-all hover:underline hover:border-white">
-            <Link to="/friends" className="py-3 text-white">
+          <li className="flex justify-between items-center cursor-pointer border-2  px-1 transition-all hover:underline group hover:bg-[#8c8c8c] focus:bg-[#8c8c8c]">
+            <Link
+              to="/"
+              className="py-3 text-white group-hover:text-black"
+            >
               Friends
             </Link>
             <IoIosPeople className="text-[30px] text-white" />
@@ -102,7 +111,7 @@ const Nav = () => {
         </ul>
 
         {/* Profile section below menu on lg and above */}
-        <div className="hidden lg:flex mt-auto lg:flex gap-2 mb-5 items-center">
+        <div className="hidden lg:flex mt-auto gap-2 mb-5 items-center">
           <img
             src="/profile-image.jpg"
             alt="users-image"
