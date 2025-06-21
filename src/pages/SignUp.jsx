@@ -9,9 +9,6 @@ import {
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router"
 
-// sign-up page authentication
-// sign-up page authentication
-// sign-up page authentication
 
 const SignUp = () => {
   const auth = getAuth();
