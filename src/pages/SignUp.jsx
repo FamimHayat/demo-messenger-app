@@ -7,7 +7,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 const SignUp = () => {
-  
+
   const auth = getAuth();
 
   const [userData, setUserData] = useState({
@@ -18,16 +18,13 @@ const SignUp = () => {
 
   const handleSignUp = () => {
     console.log(userData);
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
-        // Signed up
         const user = userCredential.user;
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
       });
   };
 
