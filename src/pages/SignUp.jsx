@@ -29,7 +29,7 @@ const SignUp = () => {
         toast.success(" registration successful..!!!");
         updateProfile(auth.currentUser, {
           displayName: userData.fullName,
-          photoURL: "https://example.com/jane-q-user/profile.jpg",
+          photoURL: "/profile-image.jpg",
         })
           .then(() => {
             console.log(userCredential);
