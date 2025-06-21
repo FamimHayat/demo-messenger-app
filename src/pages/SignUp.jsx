@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-
-
-
+// sign-up page authentication
+// sign-up page authentication
+// sign-up page authentication
 
 const SignUp = () => {
-
   const auth = getAuth();
 
   const [userData, setUserData] = useState({
@@ -20,11 +19,15 @@ const SignUp = () => {
     console.log(userData);
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
+        console.log(userCredential);
+        
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        console.log(error);
+        
       });
   };
 
