@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 
 // sign-up page authentication
@@ -21,15 +25,22 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then((userCredential) => {
         // const user = userCredential.user;
-        console.log(userCredential);
 
         toast.success(" registration successful..!!!");
+        updateProfile(auth.currentUser, {
+          displayName: userData.fullName,
+          photoURL: "https://example.com/jane-q-user/profile.jpg",
+        })
+          .then(() => {
+            console.log(userCredential);
+          })
+          .catch((error) => {
+            console.log(error.code);
+
+            console.log(error.message);
+          });
       })
       .catch((error) => {
-        console.log(error.code);
-
-        console.log(error.message);
-
         if (error.code === "auth/missing-email") {
           toast.error("enter your email account..!");
         }
