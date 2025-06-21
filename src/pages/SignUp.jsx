@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 // sign-up page authentication
 // sign-up page authentication
@@ -21,18 +22,53 @@ const SignUp = () => {
       .then((userCredential) => {
         // const user = userCredential.user;
         console.log(userCredential);
-        
+
+        toast.success(" registration successful..!!!");
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
+        console.log(error.code);
+
+        console.log(error.message);
+
+        if (error.code === "auth/missing-email") {
+          toast.error("enter your email account..!");
+        }
+
+        if (error.code === "auth/invalid-email") {
+          toast.error("enter a valid email account..!");
+        }
+
+        if (error.code === "auth/weak-password") {
+          toast.error("make a strong password ..!");
+        }
+
+        if (error.code === "auth/missing-password") {
+          toast.error("make a password..!");
+        }
+        if (error.code === "auth/invalid-email") {
+          toast.error("make a password..!");
+        }
+
         console.log(error);
-        
       });
   };
 
   return (
     <div className="min-h-screen w-full bg-[#202020] flex items-center justify-center p-4">
+      <div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
       <form
         className="bg-white w-full max-w-md px-8 py-12 rounded-2xl shadow-xl flex flex-col gap-6"
         onSubmit={(e) => e.preventDefault()}
