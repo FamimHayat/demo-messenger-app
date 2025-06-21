@@ -1,7 +1,36 @@
-import React from "react";
-import { FcGoogle } from "react-icons/fc"
+import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
+
+
 
 const SignUp = () => {
+  
+  const auth = getAuth();
+
+  const [userData, setUserData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSignUp = () => {
+    console.log(userData);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
+
   return (
     <div className="min-h-screen w-full bg-[#202020] flex items-center justify-center p-4">
       <form
@@ -19,6 +48,9 @@ const SignUp = () => {
             name="username"
             id="username"
             required
+            onChange={(e) => {
+              setUserData((prev) => ({ ...prev, fullName: e.target.value }));
+            }}
             className="w-full text-lg px-1 pt-4 pb-1 border-b-2 border-gray-300 focus:outline-none focus:border-[#0b0b0b] peer"
           />
           <label
@@ -36,6 +68,9 @@ const SignUp = () => {
             name="email"
             id="email"
             required
+            onChange={(e) => {
+              setUserData((prev) => ({ ...prev, email: e.target.value }));
+            }}
             className="w-full text-lg px-1 pt-4 pb-1 border-b-2 border-gray-300 focus:outline-none focus:border-[#0b0b0b] peer"
           />
           <label
@@ -53,6 +88,9 @@ const SignUp = () => {
             name="password"
             id="password"
             required
+            onChange={(e) => {
+              setUserData((prev) => ({ ...prev, password: e.target.value }));
+            }}
             className="w-full text-lg px-1 pt-4 pb-1 border-b-2 border-gray-300 focus:outline-none focus:border-[#0b0b0b] peer"
           />
           <label
@@ -73,12 +111,13 @@ const SignUp = () => {
           type="submit"
           className="bg-[#201f1f] text-white py-3 rounded-full text-lg flex  justify-center items-center gap-3 cursor-pointer hover:bg-[#3a3c66] transition"
         >
-          Sign up with Google <FcGoogle className="text-[30px]"/>
+          Sign up with Google <FcGoogle className="text-[30px]" />
         </button>
 
         <button
           type="submit"
-          className="bg-[#292727] text-white py-3 rounded-full text-lg cursor-pointer hover:bg-[#0b0b0b] transition"
+          className="bg-[#292727] text-white py-3 rounded-full text-lg cursor-pointer hover:bg-[#0b0b0b] transition active:bg-[#f3f2f2]"
+          onClick={handleSignUp}
         >
           Sign up
         </button>
