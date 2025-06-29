@@ -3,11 +3,23 @@ import { FaUserGroup } from "react-icons/fa6";
 import { IoIosPeople } from "react-icons/io";
 import { LuMessageCircleCode } from "react-icons/lu";
 import { SlSettings } from "react-icons/sl";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux"
+import { loggedUser } from "../reduxStore/slices/authSlices"
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(true);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+   const reduxData = useSelector((state) => state.userData.userInfo);
+ 
+
+  const handleSignOut = () => {
+    dispatch(loggedUser(null))
+    navigate("/signIn")
+  
+  }
 
   return (
     <nav
@@ -41,7 +53,7 @@ const Nav = () => {
               />
               <div className="flex flex-col gap-1">
                 <h2 className="text-[19px] text-white hidden md:block">
-                  user-name
+                  {reduxData.displayName}
                 </h2>
                 <Link
                   to="/userProfile"
@@ -91,19 +103,13 @@ const Nav = () => {
             <LuMessageCircleCode className="text-[25px] text-white " />
           </li>
           <li className="flex justify-between items-center cursor-pointer border-2  px-1 transition-all hover:underline group hover:bg-[#8c8c8c] focus:bg-[#8c8c8c]">
-            <Link
-              to="/"
-              className="py-3 text-white group-hover:text-black"
-            >
+            <Link to="/" className="py-3 text-white group-hover:text-black">
               Groups
             </Link>
             <FaUserGroup className="text-[25px] text-white" />
           </li>
           <li className="flex justify-between items-center cursor-pointer border-2  px-1 transition-all hover:underline group hover:bg-[#8c8c8c] focus:bg-[#8c8c8c]">
-            <Link
-              to="/"
-              className="py-3 text-white group-hover:text-black"
-            >
+            <Link to="/" className="py-3 text-white group-hover:text-black">
               Friends
             </Link>
             <IoIosPeople className="text-[30px] text-white" />
@@ -111,20 +117,32 @@ const Nav = () => {
         </ul>
 
         {/* Profile section below menu on lg and above */}
-        <div className="hidden lg:flex mt-auto gap-2 mb-5 items-center">
-          <img
-            src="/profile-image.jpg"
-            alt="users-image"
-            className="w-15 h-15 rounded-full p-0.5 border border-gray-300"
-          />
-          <div className="flex flex-col gap-2">
-            <h2 className="text-[19px] text-white">user-name</h2>
-            <Link to="/myProfile" className="flex gap-3 items-center group">
-              <p className="text-white group-hover:underline group-hover:text-blue-300 cursor-pointer">
-                edit profile
-              </p>
-              <SlSettings className="flex md:hidden" />
-            </Link>
+        <div className="mt-auto">
+          <div className="hidden lg:flex  gap-2 mb-5 items-center">
+            <img
+              src="/profile-image.jpg"
+              alt="users-image"
+              className="w-15 h-15 rounded-full p-0.5 border border-gray-300"
+            />
+            <div className="flex flex-col gap-2">
+              <h2 className="text-[19px] text-white">
+                {reduxData.displayName}
+              </h2>
+              <Link to="/myProfile" className="flex gap-3 items-center group">
+                <p className="text-white group-hover:underline group-hover:text-blue-300 cursor-pointer">
+                  edit profile
+                </p>
+                <SlSettings className="flex md:hidden" />
+              </Link>
+            </div>
+          </div>
+          <div className="text-center">
+            <button
+              onClick={handleSignOut}
+              className="py-3 my-5 rounded-xl text-white font-semibold w-full bg-red-500 transition-all hover:bg-red-600 z-10 cursor-pointer"
+            >
+              Sign OUT
+            </button>
           </div>
         </div>
       </div>

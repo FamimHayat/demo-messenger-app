@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { loggedUser } from "../reduxStore/slices/authSlices";
@@ -10,6 +10,8 @@ const SignIn = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+ 
+  const reduxData = useSelector((state) => state.userData.userInfo);
 
   const [userData, setUserData] = useState({
     email: "",
@@ -24,9 +26,9 @@ const SignIn = () => {
         } else {
           dispatch(loggedUser(userCredential.user));
           toast.success("signed in successfully...!");
-          // setTimeout(() => {
-          //   navigate("/");
-          // }, 1000);
+           setTimeout(() => {
+             navigate("/");
+           }, 1500);
         }
       })
       .catch((error) => {

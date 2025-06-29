@@ -1,6 +1,9 @@
-import React from 'react';
+import React from "react";
+import { useSelector } from "react-redux";
 
 const MyProfile = () => {
+  const reduxData = useSelector((state) => state.userData.userInfo);
+
   return (
     <section className="h-dvh w-full flex justify-center items-center">
       <div className="flex justify-center">
@@ -26,8 +29,8 @@ const MyProfile = () => {
               className="
               overflow-hidden 
               object-cover 
-              w-70 
-              h-70 
+              w-40 
+              h-40 
               border-4 
               border-[#000000d2] 
               rounded-full 
@@ -43,9 +46,9 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <p className="mt-5 mb-0 font-semibold text-lg cursor-pointer">
-              Jhon Doe
-              <span className="block font-light text-base">
+            <p className="mt-5 mb-0 font-semibold text-4xl px-5  cursor-pointer">
+              {reduxData.displayName}
+              <span className="block font-light text-base pt-8">
                 CEO of WritBook
               </span>
             </p>
@@ -57,4 +60,3 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
-
