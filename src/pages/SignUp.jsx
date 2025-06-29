@@ -7,61 +7,69 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
+import { useSelector } from "react-redux"
 
 const SignUp = () => {
   const auth = getAuth();
   const navigate = useNavigate();
+  const reduxData = useSelector((state) => state.userData.userInfo);
+
 
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
     password: "",
   });
-
+  
   const handleSignUp = () => {
     console.log(userData);
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
-      .then((userCredential) => {
-        updateProfile(auth.currentUser, {
-          displayName: userData.fullName,
-          photoURL: "/profile-image.jpg",
-        })
-          .then(() => {
-            sendEmailVerification(auth.currentUser).then(() => {
-              // Email verification sent!
-              // ...
-              toast.success(" registration successful..!!!");
-              setTimeout(() => {
-                navigate("/signIn");
-              }, 1500);
-            });
-          })
-          .catch((error) => {});
+    .then((userCredential) => {
+      updateProfile(auth.currentUser, {
+        displayName: userData.fullName,
+        photoURL: "/profile-image.jpg",
       })
-      .catch((error) => {
-        if (error.code === "auth/missing-email") {
-          toast.error("enter your email account..!");
-        }
-
-        if (error.code === "auth/invalid-email") {
-          toast.error("enter a valid email account..!");
-        }
-
-        if (error.code === "auth/weak-password") {
-          toast.error("make a strong password ..!");
-        }
-
-        if (error.code === "auth/missing-password") {
-          toast.error("make a password..!");
-        }
-        if (error.code === "auth/invalid-email") {
-          toast.error("make a password..!");
-        }
-
-        console.log(error);
-      });
+      .then(() => {
+        sendEmailVerification(auth.currentUser).then(() => {
+          // Email verification sent!
+          // ...
+          toast.success(" registration successful..!!!");
+          setTimeout(() => {
+            navigate("/signIn");
+          }, 1500);
+        });
+      })
+      .catch((error) => {});
+    })
+    .catch((error) => {
+      if (error.code === "auth/missing-email") {
+        toast.error("enter your email account..!");
+      }
+      
+      if (error.code === "auth/invalid-email") {
+        toast.error("enter a valid email account..!");
+      }
+      
+      if (error.code === "auth/weak-password") {
+        toast.error("make a strong password ..!");
+      }
+      
+      if (error.code === "auth/missing-password") {
+        toast.error("make a password..!");
+      }
+      if (error.code === "auth/invalid-email") {
+        toast.error("make a password..!");
+      }
+      
+      console.log(error);
+    });
   };
+
+  if (reduxData) {
+    return <Navigate to="/" />;
+  }
+
 
   return (
     <div className="min-h-screen w-full bg-[#202020] flex items-center justify-center p-4">

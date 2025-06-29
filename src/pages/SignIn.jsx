@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { loggedUser } from "../reduxStore/slices/authSlices";
 import { toast, ToastContainer } from "react-toastify";
@@ -38,6 +38,10 @@ const SignIn = () => {
         console.log(errorMessage);
       });
   };
+
+  if (reduxData) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="min-h-screen w-full bg-[#202020] flex items-center justify-center p-4">

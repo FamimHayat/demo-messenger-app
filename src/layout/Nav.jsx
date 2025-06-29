@@ -3,7 +3,7 @@ import { FaUserGroup } from "react-icons/fa6";
 import { IoIosPeople } from "react-icons/io";
 import { LuMessageCircleCode } from "react-icons/lu";
 import { SlSettings } from "react-icons/sl";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux"
 import { loggedUser } from "../reduxStore/slices/authSlices"
@@ -14,12 +14,14 @@ const Nav = () => {
   const navigate = useNavigate()
    const reduxData = useSelector((state) => state.userData.userInfo);
  
+ 
 
   const handleSignOut = () => {
     dispatch(loggedUser(null))
     navigate("/signIn")
   
   }
+
 
   return (
     <nav
@@ -32,7 +34,6 @@ const Nav = () => {
           flex-col lg:flex-col
           lg:justify-start
           pt-5 lg:pt-0
-          
         `}
       >
         {/* Top row: Brand logo and profile side-by-side on small screens */}
