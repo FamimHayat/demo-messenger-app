@@ -7,12 +7,11 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router"
-
+import { useNavigate } from "react-router";
 
 const SignUp = () => {
   const auth = getAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
     fullName: "",
@@ -33,12 +32,12 @@ const SignUp = () => {
               // Email verification sent!
               // ...
               toast.success(" registration successful..!!!");
-             setTimeout(()=>{ navigate("/signIn");},1500)
+              setTimeout(() => {
+                navigate("/signIn");
+              }, 1500);
             });
           })
-          .catch((error) => {
-            
-          });
+          .catch((error) => {});
       })
       .catch((error) => {
         if (error.code === "auth/missing-email") {
