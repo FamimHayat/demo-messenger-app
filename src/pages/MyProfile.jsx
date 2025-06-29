@@ -1,11 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
+import { LuPenLine } from "react-icons/lu";
 import { useSelector } from "react-redux";
+import { getAuth, updateProfile } from "firebase/auth";
+import { toast, ToastContainer } from "react-toastify"
 
 const MyProfile = () => {
+  const auth = getAuth();
   const reduxData = useSelector((state) => state.userData.userInfo);
+  const [editable, setEditable] = useState(false);
+  const [userData, setUserData] = useState();
+
+  const handleUpdate = () => {
+     console.log(userData);
+     
+     updateProfile(auth.currentUser, {
+       displayName: userData,
+       photoURL: "https://example.com/jane-q-user/profile.jpg",
+     })
+     .then(() => {
+       toast.success("profile update successfully..!")
+       setTimeout(() => {
+         toast.success("sign in again to see the updates..!")
+        
+       }, 500);
+       })
+       .catch((error) => {
+         // An error occurred
+         // ...
+       });
+  }
 
   return (
     <section className="h-dvh w-full flex justify-center items-center">
+      <div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
       <div className="flex justify-center">
         <div
           className="
@@ -46,11 +86,45 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <p className="mt-5 mb-0 font-semibold text-4xl px-5  cursor-pointer">
-              {reduxData.displayName}
-              <span className="block font-light text-base pt-8">
-                CEO of WritBook
-              </span>
+            <div className="flex gap-2 items-center ">
+              <p className="mt-5 mb-0 font-semibold text-4xl px-5  cursor-pointer ">
+                {reduxData.displayName}
+              </p>
+              <button
+                onClick={() => setEditable(true)}
+                className="cursor-pointer mt-5 p-1  rounded-md hover:bg-blue-600  hover:text-white active:bg-black"
+              >
+                <LuPenLine className="text-2xl " />
+              </button>
+            </div>
+            {editable && (
+              <div>
+                <div className="flex gap-3 items-center ">
+                  <input
+                    type="text"
+                    placeholder="your name"
+                    onChange={(e) => {
+                      setUserData(e.target.value);
+                    }}
+                    className="mt-5 border-b custom-inset-shadow bg-gray-900 py-2 px-1 font-semibold tracking-wider text-xl"
+                  />
+                  <button
+                    onClick={() => setEditable(false)}
+                    className="text-2xl cursor-pointer mt-5 border px-2 bg-red-500 hover:bg-red-600  hover:text-white"
+                  >
+                    X
+                  </button>
+                </div>
+                <button
+                  onClick={handleUpdate}
+                  className="p-2 mt-5 bg-green-500 rounded-md hover:bg-green-600 cursor-pointer"
+                >
+                  update
+                </button>
+              </div>
+            )}
+            <p className="block font-light  underline pt-8 text-2xl">
+              my-profile
             </p>
           </div>
         </div>
