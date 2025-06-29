@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { loggedUser } from "../reduxStore/slices/authSlices";
 import { toast, ToastContainer } from "react-toastify";
@@ -109,12 +109,19 @@ const SignIn = () => {
           <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-[#0b0b0b] group-hover:w-full transition-all duration-300 ease-in-out transform -translate-x-1/2"></span>
         </div>
 
+        <Link to="/SignUp">
+          <p className="text-center ">
+            don't have an account{" "}
+            <span className="text-2xl underline hover:text-blue-600 pl-2">SignUp</span>
+          </p>
+        </Link>
+
         <button
           type="submit"
           onClick={handleSignIn}
           className="bg-[#292727] text-white py-3 rounded-full text-lg cursor-pointer hover:bg-[#0b0b0b] transition"
         >
-          Sign up
+          Sign In
         </button>
       </form>
     </div>
