@@ -8,8 +8,10 @@ export const authSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    loggedUser: (state) => {
-    
+    loggedUser: (state , actions) => {
+          // state.userInfo = actions.payload
+          console.log(actions.payload);
+          
     },
   
   },
