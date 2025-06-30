@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { LuPenLine } from "react-icons/lu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAuth, updateProfile } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify"
+import { loggedUser } from "../reduxStore/slices/authSlices"
 
 const MyProfile = () => {
   const auth = getAuth();
   const reduxData = useSelector((state) => state.userData.userInfo);
+  const dispatch = useDispatch()
   const [editable, setEditable] = useState(false);
   const [userData, setUserData] = useState();
+
 
   const handleUpdate = () => {
      console.log(userData);
@@ -19,10 +22,11 @@ const MyProfile = () => {
      })
      .then(() => {
        toast.success("profile update successfully..!")
+        dispatch(loggedUser(auth.currentUser))
        setTimeout(() => {
-         toast.success("sign in again to see the updates..!")
-        
-       }, 500);
+         
+        setEditable(false)
+       }, 1000);
        })
        .catch((error) => {
          // An error occurred
