@@ -1,6 +1,6 @@
 import React from "react";
 
-const Friends = () => {
+const Friend = () => {
   return (
     <div className="py-2 px-1  flex gap-3 lg:gap-5 cursor-pointer group hover:bg-[#343434] ">
       <div className=" h-18 w-23">
@@ -23,4 +23,4 @@ const Friends = () => {
   );
 };
 
-export default Friends;
+export default Friend;

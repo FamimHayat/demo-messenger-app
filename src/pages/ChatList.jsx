@@ -1,7 +1,8 @@
 import React from "react";
 
 import SearchBar from "../components/SearchBar"
-import Friends from "../components/friends"
+import Friend from "../components/Friend"
+
 
 
 const ChatList = () => {
@@ -11,34 +12,8 @@ const ChatList = () => {
         <SearchBar />
       </div>
       <div className="overflow-y-auto chatList-custom-height flex flex-col gap-1  ">
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
-        <Friends />
+        <Friend />
+      
       </div>
     </section>
   );
