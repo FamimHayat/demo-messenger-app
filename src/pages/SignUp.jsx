@@ -8,11 +8,7 @@ import {
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import { Link, Navigate, useNavigate } from "react-router";
-<<<<<<< HEAD
 import { useSelector } from "react-redux";
-=======
-import { useSelector } from "react-redux"
->>>>>>> bca6fdc900b96246bd7ac5ab4c5c8858779b0acb
 import { getDatabase, ref, set } from "firebase/database";
 
 const SignUp = () => {
@@ -20,10 +16,6 @@ const SignUp = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.userData.userInfo);
-<<<<<<< HEAD
-=======
-  const db = getDatabase(); 
->>>>>>> bca6fdc900b96246bd7ac5ab4c5c8858779b0acb
 
   const [userData, setUserData] = useState({
     fullName: "",
@@ -55,7 +47,6 @@ const SignUp = () => {
           })
           .catch((error) => {});
       })
-<<<<<<< HEAD
       .catch((error) => {
         if (error.code === "auth/missing-email") {
           toast.error("enter your email account..!");
@@ -76,44 +67,6 @@ const SignUp = () => {
           toast.error("make a password..!");
         }
       });
-=======
-      .then(() => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          // Email verification sent!
-          // ...
-          toast.success(" registration successful..!!!");
-      
-         
-          setTimeout(() => {
-            navigate("/signIn");
-          }, 1500);
-        });
-      })
-      .catch((error) => {});
-    })
-    .catch((error) => {
-      if (error.code === "auth/missing-email") {
-        toast.error("enter your email account..!");
-      }
-      
-      if (error.code === "auth/invalid-email") {
-        toast.error("enter a valid email account..!");
-      }
-      
-      if (error.code === "auth/weak-password") {
-        toast.error("make a strong password ..!");
-      }
-      
-      if (error.code === "auth/missing-password") {
-        toast.error("make a password..!");
-      }
-      if (error.code === "auth/invalid-email") {
-        toast.error("make a password..!");
-      }
-      
-      console.log(error);
-    });
->>>>>>> bca6fdc900b96246bd7ac5ab4c5c8858779b0acb
   };
 
   if (reduxData) {
