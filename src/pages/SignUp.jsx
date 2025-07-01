@@ -20,7 +20,7 @@ const SignUp = () => {
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
-    password: "",
+    password: "",  
   });
 
   const handleSignUp = () => {
