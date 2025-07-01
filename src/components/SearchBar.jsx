@@ -1,8 +1,23 @@
 import React from 'react'
 import { FaPlus } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
+import { useEventContext } from "../trigger/EventContext";
+import { useLocation, useNavigate } from 'react-router'
 
 const SearchBar = () => {
+  const { showUserList, toggleUserList } = useEventContext();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = () => {
+    toggleUserList();
+
+    if (!showUserList) {
+      navigate("/"); // Go to UserList on first click
+    } else {
+      navigate("/"); // Go back on second click
+    }
+  };
   return (
     <div className=" flex gap-2 py-2 border-b-2 border-[#4f4e4e] group">
       <div className="w-full relative">
@@ -16,11 +31,16 @@ const SearchBar = () => {
           size={40}
         />
       </div>
-      <div className="flex items-center w-fit justify-center  cursor-pointer  group ">
-        <h2 className="text-[25px] hidden sm:flex md:hidden lg:flex text-white px-3  group-hover:text-[#80c3dd] group-active:text-white">
-          add
-        </h2>
-        <FaPlus className="text-[30px] pr-3 text-white  group-hover:text-[#80c3dd] group-active:text-white" />
+      <div className="my-auto ml-3">
+        <button
+          onClick={handleClick}
+          className="flex gap-2 items-center text-[25px] text-white underline  transition-all active:bg-[#00000030] hover:text-blue-300 active:text-white  cursor-pointer"
+        >
+          add{" "}
+          <span className="text-[15px]">
+            <FaPlus />
+          </span>
+        </button>
       </div>
     </div>
   );
