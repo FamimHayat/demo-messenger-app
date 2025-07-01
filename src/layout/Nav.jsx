@@ -12,7 +12,7 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(true);
   const dispatch = useDispatch()
   const navigate = useNavigate()
-   const reduxData = useSelector((state) => state.userData.userInfo);
+  const reduxData = useSelector((state) => state.userData.userInfo);
  
  
 
@@ -53,17 +53,14 @@ const Nav = () => {
                 className="w-15 h-15 rounded-full p-0.5 border border-gray-300"
               />
               <div className="flex flex-col gap-1">
-                <h2 className="text-[19px] text-white hidden md:block">
+                <h2 className="text-[19px] text-white ">
                   {reduxData.displayName}
                 </h2>
-                <Link
-                  to="/userProfile"
-                  className="flex  gap-2 items-center group"
-                >
-                  <p className=" text-white group-hover:underline group-hover:text-blue-300 cursor-pointer hidden md:block">
+                <Link to="/myProfile" className="flex gap-3 items-center group">
+                  <p className="hidden sm:flex text-white group-hover:underline group-hover:text-blue-300 cursor-pointer">
                     edit profile
                   </p>
-                  <SlSettings className="flex md:hidden text-white group-hover:text-blue-300" />
+                  <SlSettings className="text-white flex sm:hidden hover:border-b" />
                 </Link>
               </div>
             </div>

@@ -7,14 +7,15 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
-import { Navigate, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useSelector } from "react-redux"
+
 
 const SignUp = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.userData.userInfo);
-
+ 
 
   const [userData, setUserData] = useState({
     fullName: "",
@@ -35,6 +36,8 @@ const SignUp = () => {
           // Email verification sent!
           // ...
           toast.success(" registration successful..!!!");
+      
+         
           setTimeout(() => {
             navigate("/signIn");
           }, 1500);
@@ -155,12 +158,14 @@ const SignUp = () => {
           </label>
           <span className="absolute bottom-0 left-1/2 w-0 h-[2px] bg-[#0b0b0b] group-hover:w-full transition-all duration-300 ease-in-out transform -translate-x-1/2"></span>
         </div>
-        <h2 className="text-center text-lg text-gray-600">
-          Already have an account?{" "}
-          <span className="underline text-[#0b0b0b] p-1 cursor-pointer transition-all hover:bg-black hover:text-white">
-            Sign in
-          </span>
-        </h2>
+        <Link to="/SignIn">
+          <p className="text-center ">
+            already have an account{" "}
+            <span className="text-2xl underline hover:text-blue-600 pl-2">
+              Sign-In
+            </span>
+          </p>
+        </Link>
         <button
           type="submit"
           className="bg-[#201f1f] text-white py-3 rounded-full text-lg flex  justify-center items-center gap-3 cursor-pointer hover:bg-[#3a3c66] transition"
