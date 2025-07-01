@@ -8,71 +8,70 @@ import {
 } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import { Link, Navigate, useNavigate } from "react-router";
-import { useSelector } from "react-redux"
-
+import { useSelector } from "react-redux";
+import { getDatabase, ref, set } from "firebase/database";
 
 const SignUp = () => {
+  const db = getDatabase();
   const auth = getAuth();
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.userData.userInfo);
- 
 
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
     password: "",
   });
-  
+
   const handleSignUp = () => {
-    console.log(userData);
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
-    .then((userCredential) => {
-      updateProfile(auth.currentUser, {
-        displayName: userData.fullName,
-        photoURL: "/profile-image.jpg",
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName: userData.fullName,
+          photoURL: "/profile-image.jpg",
+        })
+          .then(() => {
+            sendEmailVerification(auth.currentUser).then(() => {
+              set(ref(db, "usersList/" + auth.currentUser.uid), {
+                username: auth.currentUser.displayName,
+                email: auth.currentUser.email,
+                profile_picture: auth.currentUser.photoURL,
+              });
+
+              toast.success(" registration successful..!!!");
+
+              setTimeout(() => {
+                navigate("/signIn");
+              }, 1500);
+            });
+          })
+          .catch((error) => {});
       })
-      .then(() => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          // Email verification sent!
-          // ...
-          toast.success(" registration successful..!!!");
-      
-         
-          setTimeout(() => {
-            navigate("/signIn");
-          }, 1500);
-        });
-      })
-      .catch((error) => {});
-    })
-    .catch((error) => {
-      if (error.code === "auth/missing-email") {
-        toast.error("enter your email account..!");
-      }
-      
-      if (error.code === "auth/invalid-email") {
-        toast.error("enter a valid email account..!");
-      }
-      
-      if (error.code === "auth/weak-password") {
-        toast.error("make a strong password ..!");
-      }
-      
-      if (error.code === "auth/missing-password") {
-        toast.error("make a password..!");
-      }
-      if (error.code === "auth/invalid-email") {
-        toast.error("make a password..!");
-      }
-      
-      console.log(error);
-    });
+      .catch((error) => {
+        if (error.code === "auth/missing-email") {
+          toast.error("enter your email account..!");
+        }
+
+        if (error.code === "auth/invalid-email") {
+          toast.error("enter a valid email account..!");
+        }
+
+        if (error.code === "auth/weak-password") {
+          toast.error("make a strong password ..!");
+        }
+
+        if (error.code === "auth/missing-password") {
+          toast.error("make a password..!");
+        }
+        if (error.code === "auth/invalid-email") {
+          toast.error("make a password..!");
+        }
+      });
   };
 
   if (reduxData) {
     return <Navigate to="/" />;
   }
-
 
   return (
     <div className="min-h-screen w-full bg-[#202020] flex items-center justify-center p-4">
