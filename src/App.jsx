@@ -19,7 +19,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path="/myProfile" element={<MyProfile />} />
-                <Route path="/userList" element={<UserList />} />
+               
               </Route>
             </Route>
             <Route path="*" element={<Error404 />}></Route>
