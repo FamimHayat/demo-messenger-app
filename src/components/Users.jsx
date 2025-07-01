@@ -2,9 +2,11 @@ import React from "react";
 
 const Users = () => {
   return (
-    <div className="py-4 px-3  flex gap-3 lg:gap-5  group hover:bg-[#343434] overflow">
-      <div className=" h-18 w-23">
-        <div className="h-full border-2 rounded-full border-transparent outline-2 outline-white"></div>
+    <div className="py-2 px-3  flex gap-3 lg:gap-5  group hover:bg-[#343434] overflow">
+      <div className="py-1">
+        <div className=" w-15 h-15">
+          <div className="h-full border-2 rounded-full border-transparent outline-2 outline-white"></div>
+        </div>
       </div>
       <div className="flex items-center w-full justify-between">
         <div className="flex flex-col justify-between">

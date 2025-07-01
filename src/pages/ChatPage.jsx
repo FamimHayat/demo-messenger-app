@@ -1,10 +1,11 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa6"
+import { FaArrowRight, FaFaceSmile } from "react-icons/fa6"
 
 import { SlSettings } from "react-icons/sl"
 import { Link } from "react-router"
 import MyMassage from "../components/MyMassage"
 import FriendMassage from "../components/FriendMassage"
+import { FaSmile, FaSmileBeam } from "react-icons/fa"
 
 const ChatPage = () => {
   return (
@@ -113,6 +114,9 @@ const ChatPage = () => {
                   placeholder="type your message"
                   className="text-[17px] text-white custom-inset-shadow py-4 placeholder:text-2xl placeholder-stone-400 pl-3  bg-[#3f3e3e] rounded-full border-4 border-[#202020] outline-none focus:outline-none focus:ring-2 focus:ring-[#b6b5b5] w-full"
                 />
+              </div>
+              <div className="flex items-center w-fit justify-center cursor-pointer rounded-full group ">
+                <FaFaceSmile className="text-[30px] md:text-[40px] p-1 text-white group-hover:text-[#80c3dd] active:text-white border-2  rounded-full" />
               </div>
               <div className="flex items-center w-fit justify-center cursor-pointer rounded-full group ">
                 <FaArrowRight className="text-[30px] md:text-[40px] p-1 text-white group-hover:text-[#80c3dd] active:text-white border-2  rounded-full" />

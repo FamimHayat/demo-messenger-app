@@ -37,11 +37,7 @@ const SignUp = () => {
           // ...
           toast.success(" registration successful..!!!");
       
-          set(ref(db, "users/" + userId), {
-            username: name,
-            email: email,
-            profile_picture: imageUrl,
-          });
+         
           setTimeout(() => {
             navigate("/signIn");
           }, 1500);
