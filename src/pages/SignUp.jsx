@@ -15,7 +15,7 @@ const SignUp = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.userData.userInfo);
-  const db = getDatabase();
+  const db = getDatabase(); 
 
   const [userData, setUserData] = useState({
     fullName: "",
