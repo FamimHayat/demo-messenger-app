@@ -32,7 +32,7 @@ const AddList = ({ handleClose }) => {
 
   return (
     <section className="absolute top-[0%] left-0 bg-[#000000bb] w-full h-dvh">
-      <div className="absolute top-[10%] left-[40%] w-1/5 cursor-pointer h-150 px-1 border-4 rounded-2xl md:rounded-l-2xl bg-[#202020] border-[#4f4e4e]">
+      <div className="absolute top-[10%] left-[40%] w-[400px] cursor-pointer h-150 px-1 border-4 rounded-2xl md:rounded-l-2xl bg-[#202020] border-[#4f4e4e]">
         <div
           onClick={handleClose}
           className="bg-red-500 w-full py-2 my-2 cursor-pointer active:bg-red-700"
