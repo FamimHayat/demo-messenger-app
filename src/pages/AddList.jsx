@@ -12,14 +12,13 @@ const AddList = ({ handleClose }) => {
   const reduxData = useSelector((state) => state.userData.userInfo);
 
 
-    console.log(reduxData);
-  
+   
 
   useEffect(() => {
     onValue(ref(db, "usersList/"), (snapshot) => {
       let arr = [];
       snapshot.forEach((items) => {
-        console.log(items.key);
+       
         
         
         if (items.key !== reduxData.uid) {
