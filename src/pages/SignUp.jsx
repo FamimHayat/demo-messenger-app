@@ -17,6 +17,9 @@ const SignUp = () => {
   const navigate = useNavigate();
   const reduxData = useSelector((state) => state.userData.userInfo);
 
+  console.log(reduxData);
+  
+
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
@@ -28,7 +31,7 @@ const SignUp = () => {
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
           displayName: userData.fullName,
-          photoURL: "/profile-image.jpg",
+          photoURL: "https://i.postimg.cc/7YsRv5Mq/1000023515.jpg",
         })
           .then(() => {
             sendEmailVerification(auth.currentUser).then(() => {

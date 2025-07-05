@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getDatabase, push, ref, set, onValue } from "firebase/database";
 import { useSelector } from "react-redux";
 
-
 const Users = ({ data }) => {
   const db = getDatabase();
   const reduxData = useSelector((state) => state.userData.userInfo);
@@ -24,16 +23,14 @@ const Users = ({ data }) => {
   };
 
   useEffect(() => {
-    let arr = [];
     onValue(ref(db, "friendList/"), (snapshot) => {
+      let arr = [];
       snapshot.forEach((items) => {
-        arr.push({ ...items.val(), id: items.key });
+        arr.push(items.val().creatorId + items.val().participantId);
       });
       setFriendList(arr);
     });
   }, []);
-
-  console.log(friendList);
 
   return (
     <div className="py-2  w-[300px] md:w-[350px] flex gap-3 lg:gap-5 cursor-pointer  ">
@@ -51,12 +48,17 @@ const Users = ({ data }) => {
           <h2 className="text-[22px] text-white ">{data.username}</h2>
         </div>
         <div className="my-auto">
-          <button
-            onClick={handleSubmit}
-            className="bg-green-500 px-5 py-2 text-xl text-white transition-all rounded-lg hover:bg-green-600 cursor-pointer"
-          >
-            add
-          </button>
+          {friendList.includes(reduxData.uid + data.id) ||
+          friendList.includes(data.id + reduxData.uid) ? (
+            <p className="text-lg font-semibold text-green-500 border-2 p-2">friends </p>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              className="bg-green-500 px-5 py-2 text-xl text-white transition-all rounded-lg hover:bg-green-600 cursor-pointer"
+            >
+              add
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -2,25 +2,19 @@ import React, { useEffect, useState } from "react";
 
 import Users from "../components/Users";
 import { getDatabase, ref, onValue } from "firebase/database";
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const AddList = ({ handleClose }) => {
   const db = getDatabase();
 
   const [userList, setUserList] = useState([]);
- 
+
   const reduxData = useSelector((state) => state.userData.userInfo);
-
-
-   
 
   useEffect(() => {
     onValue(ref(db, "usersList/"), (snapshot) => {
       let arr = [];
       snapshot.forEach((items) => {
-       
-        
-        
         if (items.key !== reduxData.uid) {
           arr.push({ ...items.val(), id: items.key });
         }
